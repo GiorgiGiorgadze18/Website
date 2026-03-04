@@ -399,6 +399,51 @@ body {
     box-shadow: 0 10px 40px rgba(216, 70, 239, 0.4);
 }
 
+/* ===== DROPDOWN ===== */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background: rgba(168, 85, 247, 0.3);
+    border: 2px solid rgba(216, 70, 239, 0.5);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    min-width: 270px;
+    text-align: center;
+    z-index: 100;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px 20px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease;
+    margin: 4px 0; /* spacing between items */
+}
+
+.dropdown-content a:hover {
+    background: rgba(168, 85, 247, 0.5);
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+
 /* ===== PORTFOLIO PAGE STYLES ===== */
 .portfolio-container {
     padding: 150px 60px 40px 60px;
@@ -617,7 +662,6 @@ body {
     .left-panel {
         flex: none;
         width: 100%;
-        margin-top: 0;
     }
     
     .right-panel {
@@ -627,98 +671,21 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* TABLET & MOBILE STYLES */
-    
-    /* Main heading text */
     .main-heading {
         font-size: 48px;
-        padding: 40px 20px;
-    }
-    
-    /* Navigation cards */
-    .navigation-cards {
-        gap: 20px;
-    }
-    
-    .nav-card {
-        padding: 20px;
-    }
-    
-    .card-content h3 {
-        font-size: 18px;
-    }
-    
-    .card-content p {
-        font-size: 13px;
-    }
-    
-    /* Header cards on other pages */
-    .about-header-card,
-    .portfolio-header-card,
-    .contact-header-card {
-        left: 90px;
-        max-width: calc(100% - 110px);
-        padding: 15px 20px;
-    }
-    
-    /* About page */
-    .about-container {
-        padding: 130px 20px 40px 20px;
-    }
-    
-    .left-panel {
-        padding: 25px;
-    }
-    
-    .tools-section {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 15px;
-    }
-    
-    .tool-item img {
-        width: 50px;
-        height: 50px;
-    }
-    
-    .tool-item span {
-        font-size: 11px;
-    }
-    
-    .languages-section h2,
-    .soft-skills-section h2,
-    .education-section h2 {
-        font-size: 20px;
     }
     
     .profile-photo {
         width: 250px;
         height: 250px;
-        margin-bottom: 30px;
     }
     
     .profile-name {
         font-size: 48px;
-        margin-bottom: 30px;
-    }
-    
-    .download-cv-btn {
-        padding: 15px 40px;
-        font-size: 18px;
-    }
-    
-    /* Portfolio page */
-    .portfolio-container {
-        padding: 130px 20px 40px 20px;
-    }
-    
-    .portfolio-intro {
-        font-size: 28px;
-        margin-bottom: 20px;
     }
     
     .portfolio-item {
         flex-direction: column;
-        gap: 20px;
     }
     
     .project-image {
@@ -728,243 +695,48 @@ body {
         margin: 0 auto;
     }
     
-    .project-description {
-        padding: 20px;
-    }
-    
-    .project-description p {
-        font-size: 14px;
-    }
-    
-    /* Contact page */
-    .contact-container {
-        padding: 130px 20px 40px 20px;
-    }
-    
     .contact-heading {
         font-size: 42px;
-        margin-bottom: 50px;
-    }
-    
-    .contact-info-box {
-        padding: 30px 20px;
-        gap: 20px;
-    }
-    
-    .contact-item {
-        padding: 15px;
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
     }
     
     .contact-item a {
         font-size: 16px;
-    }
-    
-    .contact-icon {
-        width: 40px;
-        height: 40px;
-    }
-}
-
-@media (max-width: 480px) {
-    /* SMALL MOBILE PHONES */
-    
-    /* Home button */
-    .home-button {
-        top: 20px;
-        left: 20px;
-        width: 45px;
-        height: 45px;
-    }
-    
-    /* Main page */
-    .container {
-        padding: 30px 15px;
-    }
-    
-    .main-heading {
-        font-size: 32px;
-        padding: 30px 15px;
-    }
-    
-    .nav-card {
-        padding: 15px;
-    }
-    
-    .card-icon {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .card-icon img {
-        width: 24px;
-        height: 24px;
-    }
-    
-    .card-content h3 {
-        font-size: 16px;
-        margin-bottom: 6px;
-    }
-    
-    .card-content p {
-        font-size: 12px;
-    }
-    
-    /* Header cards */
-    .about-header-card,
-    .portfolio-header-card,
-    .contact-header-card {
-        left: 80px;
-        max-width: calc(100% - 100px);
-        padding: 12px 15px;
-    }
-    
-    .about-header-card h3,
-    .portfolio-header-card h3,
-    .contact-header-card h3 {
-        font-size: 14px;
-    }
-    
-    .about-header-card p,
-    .portfolio-header-card p,
-    .contact-header-card p {
-        font-size: 11px;
-    }
-    
-    /* About page */
-    .about-container,
-    .portfolio-container,
-    .contact-container {
-        padding: 120px 15px 30px 15px;
-    }
-    
-    .left-panel {
-        padding: 20px;
     }
     
     .tools-section {
         grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
     }
     
-    .tool-item img {
-        width: 45px;
-        height: 45px;
-    }
-    
-    .tool-item span {
-        font-size: 10px;
-    }
-    
-    .languages-section h2,
-    .soft-skills-section h2,
-    .education-section h2 {
-        font-size: 18px;
-        margin-bottom: 15px;
-    }
-    
-    .language-name {
-        font-size: 14px;
-    }
-    
-    .skills-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-    
-    .skills-grid span {
-        font-size: 13px;
-        padding: 10px;
-    }
-    
-    .education-section li {
-        font-size: 13px;
-    }
-    
-    .profile-photo {
-        width: 200px;
-        height: 200px;
-        margin-bottom: 25px;
-    }
-    
-    .profile-name {
-        font-size: 36px;
-        margin-bottom: 25px;
-    }
-    
-    .download-cv-btn {
-        padding: 12px 30px;
-        font-size: 16px;
-    }
-    
-    /* Portfolio page */
     .portfolio-intro {
-        font-size: 22px;
-    }
-    
-    .scroll-indicator {
-        font-size: 24px;
-        margin-bottom: 30px;
-    }
-    
-    .portfolio-items {
-        gap: 30px;
-    }
-    
-    .project-image {
-        max-width: 100%;
-    }
-    
-    .project-description {
-        padding: 18px;
-    }
-    
-    .project-description p {
-        font-size: 13px;
-        line-height: 1.6;
-    }
-    
-    /* Contact page */
-    .contact-heading {
         font-size: 28px;
-        line-height: 1.4;
-        margin-bottom: 40px;
-    }
-    
-    .contact-info-box {
-        padding: 25px 15px;
-    }
-    
-    .contact-item a {
-        font-size: 14px;
-        word-break: break-word;
     }
 }
 
-@media (max-width: 375px) {
-    /* VERY SMALL PHONES (iPhone SE, etc) */
+@media (max-width: 480px) {
+    .container,
+    .about-container,
+    .portfolio-container,
+    .contact-container {
+        padding: 120px 20px 20px 20px;
+    }
     
     .main-heading {
-        font-size: 28px;
+        font-size: 36px;
     }
     
-    .profile-name {
-        font-size: 32px;
+    .about-header-card,
+    .portfolio-header-card,
+    .contact-header-card {
+        left: 90px;
+        max-width: calc(100% - 110px);
     }
     
-    .contact-heading {
-        font-size: 24px;
+    .card-content h3 {
+        font-size: 16px;
     }
     
-    .portfolio-intro {
-        font-size: 20px;
-    }
-    
-    .download-cv-btn {
-        padding: 10px 25px;
-        font-size: 14px;
+    .card-content p {
+        font-size: 12px;
     }
 }
 
